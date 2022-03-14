@@ -8,4 +8,5 @@ Then select the target medium and raspiBackup does the rest.
 Possible Options --last or --select
 
 If Option --last (the last backup is automatically selected)
+
 If Option --select  (the desired backup can be selected from a list)
