@@ -31,6 +31,7 @@ normal='\033[0;39m'                #Font colors for output
 red='\033[1;31m'
 yellow='\033[1;33m'
 green='\033[1;32m'
+green='\033[1;32m'
 
 hostname="$(hostname)"           #Determine hostname
 
