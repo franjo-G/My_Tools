@@ -38,7 +38,7 @@ FILE="/usr/local/etc/raspiBackup.conf"    #Determining the DEFAULT_BACKUPPATH fr
 
 function backup(){
 		echo ""
-        	lsblk
+		lsblk
 		echo ""
 		echo -e "$yellow ------------------------------------------------------------------ \n"
 		echo -e " $Quest_more_than_2_partitions   y/N \n"
@@ -94,7 +94,7 @@ function execution(){
 		echo -e " -------------------------------------------------------------------------- $normal"
 		exit 0
 	fi
-    
+
 		echo -e "$green --------------------------------------------------------------------------------------------------------------------- \n"
 		echo -e " $Info_backup_drive $backup_path >>> $destination \n"
 		echo -e " -------------------------------------------------------------------------------------------------------------------- $normal \n"
@@ -107,7 +107,7 @@ function execution_select(){
 
 	declare -a backup_folder
 	backup_folder=( $(find $backupdir/$hostname/$hostname* -maxdepth 0 -type d))
-	
+
 	for i in "${!backup_folder[@]}"; do
 
 		v=$(( $i + 1 ))
@@ -135,7 +135,7 @@ function execution_select(){
 		echo -e " $Warn_drive_not_present \n"
 		echo -e " ------------------------------------------------------------- $normal \n"
 		execution_select
-		fi
+	fi
 }
 
 function test_digit(){
@@ -204,12 +204,12 @@ function language(){
 		Quest_more_than_2_partitions="Are there more than the 2 standard partitions on the system drive?"
 		Quest_backup_more_than_2="Should more than the 2 standard partitions be backed up?"
 		Quest_additional_partitions="Please enter the partition number(s) that should be backed up \n  in addition to the default partitions. \n  If more than one, separate them with spaces. \n  Example:   3 4 5 "
-    
+
 	else
 		echo -e "$red False input. Please enter only 1 or 2"
 		echo -e " Falsche Eingabe. Bitte nur 1 oder 2 eingeben $normal"
 		language
-  
+
 	fi
 }
 
@@ -245,18 +245,18 @@ fi
 	echo -e " backup    1"
 	echo -e " restore   2 \n"
 	echo -e " ------------------------------------------------------------$normal \n"
-	
+
 	read backup_or_restore
 
 if (( $backup_or_restore  == 1 )); then
 	backup
-    
+
 elif (($backup_or_restore == 2 )); then
 	echo -e "$yellow ------------------------------------------------------------ \n"
 	echo -e " $Quest_last_backup \n"
 	echo -e "-------------------------------------------------------------$normal \n"
 	read answer
-    
+
 else
 	echo -e "$red --------------------------------------------------------------- \n"
 	echo -e " $Warn_false_number \n"
@@ -266,7 +266,7 @@ fi
 if [[ ${answer,,} = "y" ]]; then
 	execution
 exit 0
-    
+
 else
 	execution_select
 fi
