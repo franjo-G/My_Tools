@@ -94,7 +94,7 @@ function execution(){
 		echo -e " -------------------------------------------------------------------------- $normal"
 		exit 0
 	fi
-
+    
 		echo -e "$green --------------------------------------------------------------------------------------------------------------------- \n"
 		echo -e " $Info_backup_drive $backup_path >>> $destination \n"
 		echo -e " -------------------------------------------------------------------------------------------------------------------- $normal \n"
@@ -107,7 +107,7 @@ function execution_select(){
 
 	declare -a backup_folder
 	backup_folder=( $(find $backupdir/$hostname/$hostname* -maxdepth 0 -type d))
-
+	
 	for i in "${!backup_folder[@]}"; do
 
 		v=$(( $i + 1 ))
@@ -135,7 +135,7 @@ function execution_select(){
 		echo -e " $Warn_drive_not_present \n"
 		echo -e " ------------------------------------------------------------- $normal \n"
 		execution_select
-	fi
+		fi
 }
 
 function test_digit(){
@@ -184,8 +184,8 @@ function language(){
 		Warn_no_number="Das ist keine Zahl "
 		Warn_false_number="Falsche Eingabe Bitte nur 1 oder 2 eingeben "
 		Quest_backup_or_restore="Soll ein Backup oder ein restore erstellt werden?"
-		Quest_more_than_2_partitions="Befinden sich auf dem Systemlaufwerk mehr als die 2 Standard-Partitionen   j/N?"
-		Quest_backup_more_than_2="Sollen mehr als die 2 Standardpartitionen gesichert werden   j/N?"
+		Quest_more_than_2_partitions="Befinden sich auf dem Systemlaufwerk mehr als die 2 Standard-Partitionen?   j/N"
+		Quest_backup_more_than_2="Sollen mehr als die 2 Standardpartitionen gesichert werden?   j/N"
 		Quest_additional_partitions="Bitte die Partitionsnummer(n) eingeben, die zusaetzlich \n  zu den Standardpartitionen gesichert werde sollen. \n  Falls mehrere, dann getrennt durch Leerzeichen.  \n  Beispiel:  3 4 5 "
 
 	elif (( $lang == 2 )); then
@@ -201,15 +201,15 @@ function language(){
 		Warn_no_number="That is no number "
 		Warn_false_number="Please enter 1 or 2 "
 		Quest_backup_or_restore="Should a backup or a restore be created?"
-		Quest_more_than_2_partitions="Are there more than the 2 standard partitions on the system drive   y/N?"
+		Quest_more_than_2_partitions="Are there more than the 2 standard partitions on the system drive?   y/N"
 		Quest_backup_more_than_2="Should more than the 2 standard partitions be backed up   y/N?"
 		Quest_additional_partitions="Please enter the partition number(s) that should be backed up \n  in addition to the default partitions. \n  If more than one, separate them with spaces. \n  Example:   3 4 5 "
-
+    
 	else
 		echo -e "$red False input. Please enter only 1 or 2"
 		echo -e " Falsche Eingabe. Bitte nur 1 oder 2 eingeben $normal"
 		language
-
+  
 	fi
 }
 
@@ -245,18 +245,18 @@ fi
 	echo -e " backup    1"
 	echo -e " restore   2 \n"
 	echo -e " ------------------------------------------------------------$normal \n"
-
+	
 	read backup_or_restore
 
 if (( $backup_or_restore  == 1 )); then
 	backup
-
+    
 elif (($backup_or_restore == 2 )); then
 	echo -e "$yellow ------------------------------------------------------------ \n"
 	echo -e " $Quest_last_backup \n"
 	echo -e "-------------------------------------------------------------$normal \n"
 	read answer
-
+    
 else
 	echo -e "$red --------------------------------------------------------------- \n"
 	echo -e " $Warn_false_number \n"
@@ -266,7 +266,7 @@ fi
 if [[ ${answer,,} = "y" ]] || [[ ${answer,,} = "j" ]]; then
 	execution
 exit 0
-
+    
 else
 	execution_select
 fi
