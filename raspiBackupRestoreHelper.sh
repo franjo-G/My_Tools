@@ -86,7 +86,7 @@ function execution(){
 		echo -e "$red -----------------------------------------------------------\n"
 		echo -e "$destination $Warn_only_drive"
 		echo -e " ----------------------------------------------------------$normal \n"
-		esecution
+		execution
 	fi
 	
  	if [[ -b /dev/$destination ]]; then
