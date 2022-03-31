@@ -189,7 +189,7 @@ function language(){
 		Info_backup_drive="Folgendes Backup wird restored "
 		Quest_number_of_backup="Bitte gebe die hinter dem gewuenschten Backups stehende Zahl ein. "
 		Warn_no_dir="Oops Das Verzeichnis existier nicht."
-		Warn_invalid_number="Die eingegebene Zahl ist ungueltig. Nur Zahelen im Bereich von "
+		Warn_invalid_number="Die eingegebene Zahl ist ungueltig. Nur Zahlen im Bereich von "
 		Info_restore="Das folgende Backup wird zurueckgespielt "
 		Warn_no_number="Das ist keine Zahl "
 		Warn_false_number="Falsche Eingabe Bitte nur 1 oder 2 eingeben "
@@ -197,7 +197,7 @@ function language(){
 		Quest_more_than_2_partitions="Befinden sich auf dem Systemlaufwerk mehr als die 2 Standard-Partitionen?   j/N"
 		Quest_backup_more_than_2="Sollen mehr als die 2 Standardpartitionen gesichert werden?   j/N"
 		Quest_additional_partitions="Bitte die Partitionsnummer(n) eingeben, die zusaetzlich \n  zu den Standardpartitionen gesichert werde sollen. \n  Falls mehrere, dann getrennt durch Leerzeichen.  \n  Beispiel:  3 4 5 "
-		Warn_only_drive="Bitte nur das laufwerk einheben, nicht die Partition"
+		Warn_only_drive="Bitte nur das laufwerk eingeben, nicht die Partition"
 
 	elif (( $lang == 2 )); then
 		Quest_last_backup="Should the last backup be restored? y/N "
