@@ -79,7 +79,7 @@ function execution(){
 		echo -e " ----------------------------------------------------------$normal \n"
 		read destination
 
-	if [[ "$destination" =~ ^[0a-fsmlk]*$ ]]; then
+	if [[ "$destination" =~ ^sd(a|b|c|d|e|f)$|mmcblk(0|1|2|3) ]]; then
 		echo ""
 
 	else
