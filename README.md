@@ -24,7 +24,7 @@ Updated on 27.03.22
 Updated on 28.03.22
 - Backup function added
   
----backup (a backup will be created)   
+--backup (a backup will be created)   
  - Selection options in the process 
  - only the 2 default partitions,
  - ignore additional partitions, 
