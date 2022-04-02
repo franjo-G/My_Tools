@@ -11,7 +11,7 @@ Possible options
  --last (The last backup will be selected automatically)
  
  --select (the backup can be selected from a list)
-If option --last (the last backup is selected automatically)
+ 
 --backup (a dialog for creating a backup is started)
 
 
