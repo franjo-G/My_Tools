@@ -282,16 +282,3 @@ exit 0
 else
 	execution_select
 fi
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-
