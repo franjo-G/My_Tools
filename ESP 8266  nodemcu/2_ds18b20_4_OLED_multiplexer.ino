@@ -16,8 +16,8 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C oled_temp1(U8G2_R0, U8X8_PIN_NONE);//OLED 0,
 #define TZ TZ_Europe_Berlin
 #define TCAADDR 0x70
 const int ONE_WIRE_BUS = 2;
-const char* ssid = "Franz";
-const char* password = "24034700200658151165010260";
+const char* ssid = "xxxxxxx";
+const char* password = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
