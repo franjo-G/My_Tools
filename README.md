@@ -21,7 +21,7 @@ Updated on 27.03.22
   German and English can be selected.
 
 
-Updated on 28.03.22
+# Updated on 28.03.22
 - Backup function added
   
 --backup (a backup will be created)   
@@ -39,7 +39,7 @@ If restore is selected (Asking if "last backup" should be restored).
 The procedures do not differ from the options "--last" ,"--select" and --backup.
 
 
-Update 2022_07_26
+# Update 2022_07_26
 
  Dynamic mount added.
 
