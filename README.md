@@ -60,7 +60,7 @@ The procedures do not differ from the options "--last" ,"--select" and --backup.
  (The backup directory is mounted with an entry in fstab)
 
 Cron entry
-* * * * /usr/local/bin/raspiBackupRestoreHelper.sh --mountfs "backup.unit or fstab" --cron
+* * * * * /usr/local/bin/raspiBackupRestoreHelper.sh --mountfs "backup.unit or fstab" --cron
 
 The options --select, --backup, --last and --delete can still be used with the exception of the cron call and must be placed last.
 
