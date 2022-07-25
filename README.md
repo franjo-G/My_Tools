@@ -39,3 +39,29 @@ If restore is selected (Asking if "last backup" should be restored).
 The procedures do not differ from the options "--last" ,"--select" and --backup.
 
 
+Update 2022_07_26
+#
+# Dynamic mount added.
+#
+# Possible are mount via mount-unit or via fstab.
+# Options
+# --mountfs "Name of an existing mount-unit" e.g. "backup.mount".
+# or
+# --mountfs "fstab
+#
+# For an automatic backup via cron, a --cron must be added to switch off the dialogue.
+# The backup is then done with the settings from raspiBackup.conf.
+#
+# Examples for dynamic mount:
+# sudo raspiBackupRestoreHelper.sh --mountfs "backup.mount"
+# (The mount directory will be mounted with an existing mount-unit".
+#
+# sudo raspiBackupRestoreHelper.sh --mountfs "fstab"
+# (The backup directory is mounted with an entry in fstab)
+#
+# Cron entry
+# * * * * /usr/local/bin/raspiBackupRestoreHelper.sh --mountfs "backup.unit or fstab" --cron
+#
+# The options --select, --backup, --last and --delete can still be used with the exception of the cron call and must be placed last.
+
+
