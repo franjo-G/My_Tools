@@ -26,7 +26,9 @@ Then you will be asked if you want to create a backup or restore an existing bac
  Added a function to mount and unmount the Backup-directory optional with mount-unit or fstab-entry (dynamic mount)
  
  --mountfs "Name of the mount-unit or fstab"
+ 
 Example:
+
 sudo raspiBackupRestoreHelper.sh --mountfs "backup.mount"
 or 
 sudo raspiBackupRestoreHelper.sh --mountfs "fstab"
