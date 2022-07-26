@@ -15,7 +15,7 @@ Possible options
 --backup (a dialog for creating a backup is started)
 
 
-Updated on 27.03.22
+# Updated on 27.03.22
 - Language German added.
   At program start you can choose between 
   German and English can be selected.
