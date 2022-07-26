@@ -22,4 +22,11 @@ Example:
 -- select (a backup to be restored can be selected from a list of available backups)
 -- backup (start directly in the backup dialogue)
 --delete (a backup to be deleted can be selected from a list of available backups)
--- 
+  !! The delete function is only available with this Option.
+  
+  Together with dynamic mount, all Options --last or --select or --backup or --delete must be at the End at 3rd Position
+  
+  Example:
+  --mountfs "fstab" --select
+  
+  
