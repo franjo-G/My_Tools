@@ -42,7 +42,7 @@ These two Options must be set as first and second. Behind it is possible to set 
 --cron at the end, so that there is no dialogue and the defaults from the 
 from the raspiBackup.conf are used. 
 Example:
-* * * * /raspiBackupRestoreHelper.sh --mountfs "fstab" --cron   (no further dialog guided option possible)
+* * * * * /raspiBackupRestoreHelper.sh --mountfs "fstab" --cron   (no further dialog guided option possible)
 
 
   
