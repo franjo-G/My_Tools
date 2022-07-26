@@ -30,7 +30,9 @@ Then you will be asked if you want to create a backup or restore an existing bac
 Example:
 
 sudo raspiBackupRestoreHelper.sh --mountfs "backup.mount"
+
 or 
+
 sudo raspiBackupRestoreHelper.sh --mountfs "fstab"
 
 These two Options must be set as first and second. Behind it is possible to set another option like --select or --last
