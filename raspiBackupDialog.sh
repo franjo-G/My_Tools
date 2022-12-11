@@ -165,7 +165,7 @@ function execution(){
 
 function execution_select(){
 	declare -a backup_folder
-	backup_folder=( $(find $backupdir/$hostname/$hostname* -maxdepth 0 -type d))
+	backup_folder=( $(find $backupdir/$dir/$dir* -maxdepth 0 -type d))
 
 	for i in "${!backup_folder[@]}"; do
 		v=$(( $i + 1 ))
@@ -384,7 +384,7 @@ function language(){
 			exit 0
 		fi
 	fi
-
+		sel_dir
 	backup_path="$(find $backupdir/$dir/$dir* -maxdepth 0 | sort -r | head -1)"  #Determine last backup
 
 	if [[ $3 == "--cron" ]]; then
@@ -393,13 +393,11 @@ function language(){
 		exit 0
 
 	elif [[ $1 == "--last" ]] || [[ $3 == "--last" ]]; then
-		sel_dir
 		execution
 		unmount
 		exit 0
 
 	elif [[ $1 == "--select" ]] || [[ $3 == "--select" ]]; then
-		sel_dir
 		execution_select
 		unmount
 		exit 0
@@ -426,7 +424,6 @@ function language(){
 		backup
 
 	elif (($backup_or_restore == 2 )); then
-		sel_dir
 		echo -e "$yellow $Quest_last_backup \n $normal"
 		read answer
 	else
