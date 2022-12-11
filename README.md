@@ -3,6 +3,8 @@ Help script for creating a backup with raspiBackup, as well as restoring a backu
 Prerequisite is an installation of raspiBackup
 https://www.linux-tips-and-tricks.de/en/raspberry/303-pi-creates-automatic-backups-of-itself
 
+https://github.com/framps/raspiBackup/blob/master/helper/raspiBackupDialog.sh
+
 It can simply be started without any options.
 Then you will be asked if you want to create a backup or restore an existing backup. 
 
