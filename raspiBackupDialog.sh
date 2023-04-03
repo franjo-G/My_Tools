@@ -120,6 +120,7 @@ function backup_add_part_and_comment(){
 function backup_add_comment(){
 	echo -e "$yellow $Quest_comment \n $normal"
 	read Quest_comment
+	Quest_comment_text="${Quest_comment_text//[\"\']}"
 
 	if [[ ${Quest_comment,,} =~ [yj] ]]; then
 		echo -e "$yellow $Quest_comment_text \n $normal"
