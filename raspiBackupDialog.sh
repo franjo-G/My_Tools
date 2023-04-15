@@ -225,24 +225,18 @@ function test_digit(){
 	fi
 }
 
-function backupdir_test(){
-	mountpoint="/bin/mountpoint"
-	$mountpoint -q "$1"
-	[[ $? == 0 ]]
-}
 
 function mount(){
-	backupdir_test "$backupdir"
 
 	if [[ $unitname == *".mount" ]]; then
 
-		if backupdir_test "$backupdir"; then
-			echo -e "$green $Info_already_mounted $normal \n"
+		if isPathMounted $backupdir; then		
+		echo -e "$green $Info_already_mounted $normal \n"
+
 		else
 			systemctl start $unitname
-			backupdir_test "$backupdir"
 
-			if backupdir_test "$backupdir"; then
+			if isPathMounted $backupdir; then
 				echo -e "$green $Info_is_mounted $normal \n"
 				mounted=ok
 			else
@@ -254,18 +248,18 @@ function mount(){
 
 	if [[ $unitname == "fstab" ]]; then
 
-		if backupdir_test "$backupdir"; then
+		if isPathMounted $backupdir; then
 		echo -e "$green $Info_already_mounted $normal \n"
 		else
 			/usr/bin/mount -a
 			backupdir_test "$backupdir"
 
-			if backupdir_test "$backupdir"; then
+		if isPathMounted $backupdir; then
 				echo -e "$green $Info_is_mounted $normal \n"
 				mounted=ok
 			else
 				echo -e "$red $Info_not_mounted $normal \n"
-				exit 0
+				exit
 			fi
 		fi
 	fi
@@ -284,6 +278,27 @@ function sel_dir(){
     read dir
 	backup_path="$(find $backupdir/$dir/$dir* -maxdepth 0 | sort -r | head -1)"
 }
+
+function isPathMounted() {
+
+    local path
+    local rc=1
+    path=$1
+
+    # backup path has to be mount point of the file system (second field fs_file in /etc/fstab) and NOT fs_spec otherwise test algorithm will create endless loop
+    if [[ "${1:0:1}" == "/" ]]; then
+        while [[ "$path" != "" ]]; do
+            if mountpoint -q "$path"; then
+                rc=0
+                break
+            fi
+            path=${path%/*}
+        done
+    fi
+
+    return $rc
+}
+
 
 function language(){
 	echo -e "\n \n$yellow Please choose your preferred language"
@@ -384,13 +399,12 @@ function language(){
 		fi
 	fi
 		
-	if cat /proc/mounts | grep $backupdir > /dev/null; then
-        	echo " "
-    else
-        echo -e "$red $Warn_not_mounted $normal"
+    if ! isPathMounted $backupdir; then
+        echo "$Warn_not_mounted"
         exit
-    fi	
-
+    else
+        echo ""
+    fi
 
 	if [[ $1 == "--last" ]] || [[ $3 == "--last" ]]; then
 		sel_dir
