@@ -12,16 +12,10 @@ Contents:
 
 #!/bin/bash
 
-# Configure the colors to be displayed for the output texts in raspiBackupDialog
 # Possible colors ( RED YELLOW GREEN BLUE CYAN VIOLET )
 
-# Questions (dialog)
 QUESTION=“$YELLOW”
-
-# Error
 FAIL=“$RED”
-
-# Confirmations Info
 CONFIRMATION=“$GREEN”
 
 ##################################################################################
