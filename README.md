@@ -1,4 +1,4 @@
-## Collection of some sample scripts useful for raspiBackup users
+
 
 Information 
 
@@ -13,9 +13,7 @@ Contents:
 #!/bin/bash
 
 # Configure the colors to be displayed for the output texts in raspiBackupDialog
-
 # Possible colors ( RED YELLOW GREEN BLUE CYAN VIOLET )
-
 
 # Questions (dialog)
 QUESTION=“$YELLOW”
