@@ -1,4 +1,4 @@
-raspiBackupDialog is an Helper Script to Start raspiBackup in a Dialog-guided Way
+Help script to create a backup or restore a backup created with raspiBackup in a simple, dialog-driven way.
 It can simply be started without any options. Then first a query appears whether a backup should be created or a restore should be performed. In case of a restore it is asked if the last backup should be restored. (y/N) At (N) a corresponding backup can be selected from a list. Then the target medium is selected and raspiBackup does the rest.
 
 Required raspiBackup from https://github.com/framps/raspiBackup
@@ -47,7 +47,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
 
-   Help script to create a backup or restore a backup created with raspiBackup in a simple, dialog-driven way.
+   
 
 
 
