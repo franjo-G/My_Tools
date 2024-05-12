@@ -5,15 +5,14 @@ Required raspiBackup from https://github.com/framps/raspiBackup
 
  Possible options --last , --select and --backup
 
-        Option --last -> the last backup will be selected automatically and the target medium is requested without
-                         further inquiry
+        Option --last -> the last backup is automatically selected and restored to the target medium
         Option --select -> the desired backup can be selected from a list
         Option --backup -> some options are asked like more than two default partitions, comment in backup name....    
     - See [this flowchart](./images/raspiBackopRestoreHelper_simple_flow-chart.pdf) for details
 
    Upgrade 2022-07-22
 
-    Because of the -M function, with which a comment can be appended to the name of the backup directory (but these backups are not included in the backup strategy), I added an option --delete, with which a version can be selected from a list and deleted.
+    Because of the -M function, with which a comment can be appended to the name of the backup directory (but these backups are not included in the backup strategy), I added     an option --delete, with which a version can be selected from a list and deleted.
     Before the final confirmation of the deletion process, the name of the directory to be deleted is displayed for checking purposes.
     After the deletion process, the contents of the backup directory are displayed again via ls-la for checking purposes.
 
