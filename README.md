@@ -8,17 +8,19 @@ The config file must be saved under /usr/local/etc/raspiBackupDialog.conf
 
 Contents:
 
-#################################################################################
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 #!/bin/bash
 
 # Possible colors ( RED YELLOW GREEN BLUE CYAN VIOLET )
 
 QUESTION=“$YELLOW”
+
 FAIL=“$RED”
+
 CONFIRMATION=“$GREEN”
 
-##################################################################################
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
 
