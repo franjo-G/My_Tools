@@ -1,49 +1,72 @@
-Help script for creating a backup with raspiBackup, as well as restoring a backup created with raspiBackup in a simple, dialog-guided way.
+## Collection of some sample scripts useful for raspiBackup users
 
-Prerequisite is an installation of raspiBackup
-https://www.linux-tips-and-tricks.de/en/raspberry/303-pi-creates-automatic-backups-of-itself
+Information 
+At the suggestion of a user, I have defined the color output of the texts myself with a config file, as they are not all clearly visible on every background.
 
-It can simply be started without any options.
-Then you will be asked if you want to create a backup or restore an existing backup. 
+The config file must be saved under /usr/local/etc/raspiBackupDialog.conf
 
-# Possible options
+Contents:
 
- --last (The last backup will be selected automatically)
- 
- --select (the backup can be selected from a list)
- 
- --backup (a dialog for creating a backup is started)
- 
- --delete (A Backup to delete can be selected from a list)    (update from 07/2022)
+#################################################################################
 
-# Updated on 27.03.22
-- Language German added.
-  At program start you can choose between 
-  German and English can be selected.
+#!/bin/bash
 
- 
-# Update 2022_07_26
- Added a function to mount and unmount the Backup-directory optional with mount-unit or fstab-entry (dynamic mount)
- 
- --mountfs "Name of the mount-unit or fstab"
- 
-Example:
+# Configure the colors to be displayed for the output texts in raspiBackupDialog
 
-sudo raspiBackupRestoreHelper.sh --mountfs "backup.mount"
-
-or 
-
-sudo raspiBackupRestoreHelper.sh --mountfs "fstab"
-
-These two Options must be set as first and second. Behind it is possible to set another option like --select or --last
+# Possible colors ( RED YELLOW GREEN BLUE CYAN VIOLET )
 
 
- In case of an automatic backup via crontab, you have to add the option
---cron at the end, so that there is no dialogue and the defaults from the 
-from the raspiBackup.conf are used.
+# Questions (dialog)
+QUESTION=“$YELLOW”
 
-Example:
-* * * * * /raspiBackupRestoreHelper.sh --mountfs "fstab" --cron   (no further dialog guided option possible)
+# Error
+FAIL=“$RED”
+
+# Confirmations Info
+CONFIRMATION=“$GREEN”
+
+##################################################################################
 
 
-  
+
+__Note:__ Most of the scripts are provided by framps as is and are not included in any raspiBackup release and thus are not maintained. Enhancements and other helper scripts are welcome in a PR. raspiBackupDialog was provided by [franjo-G](https://github.com/franjo-G) and will be maintained by him. 
+
+1. r2i-raspi - Sample code which retrieves the latest backup created with raspiBackup and uses raspiBackupRestore2Image to create an image from a tar or rsync backup
+
+2. raspiBackupNfsWrapper - Wrapper for raspiBackup which dynamically mounts and umounts a nfs backup drive
+
+3. raspiBackupRestore2Image - Script which builds a dd image from a tar or rsync backup in the backup directory or restores a rsync or tar backup on a device like a SD card or SSD which then can be used as a cold backup.
+
+4. raspiImageMail - Send an email using the functions from raspiBackup, based of version 0.6.4
+
+5. stopStartAllServicesWrapper - Script wish either stops or starts all existing services.
+
+6. raspiBackupDialog.sh - Makes backup and restore of backups much more convenient. (Old name: raspiBackupRestoreHelper.sh) 
+
+   Help script to create a backup or restore a backup created with raspiBackup in a simple, dialog-driven way.
+   It can simply be started without any options. Then first a query appears whether a backup should be created or a restore should be performed. In case of a restore it is asked if the last backup should be restored. (y/N) At (N) a corresponding backup can be selected from a list. Then the target medium is selected and raspiBackup does the rest.
+
+   Possible options --last , --select and --backup
+
+        Option --last -> the last backup will be selected automatically and the target medium is requested without
+                         further inquiry
+        Option --select -> the desired backup can be selected from a list
+        Option --backup -> some options are asked like more than two default partitions, comment in backup name....    
+    - See [this flowchart](./images/raspiBackopRestoreHelper_simple_flow-chart.pdf) for details
+
+   Upgrade 2022-07-22
+
+    Because of the -M function, with which a comment can be appended to the name of the backup directory (but these backups are not included in the backup strategy), I added an option --delete, with which a version can be selected from a list and deleted.
+    Before the final confirmation of the deletion process, the name of the directory to be deleted is displayed for checking purposes.
+    After the deletion process, the contents of the backup directory are displayed again via ls-la for checking purposes.
+
+    !! This dialogue can only be called up (as protection against accidental wrong entries) by using the --delete option.
+
+    I have also made a few optical changes and removed the completely superfluous dash lines.
+
+7. raspiBackupMsg2JSON.sh - Parses the raspiBackup message file and generates a JSON doc which represents the messages
+
+8. raspiBackupAndClone.sh - Creates a backup and then restores the backup to a device
+
+9. raspiBackupAndJSON.sh - Creates a backup and generates a JSON message file
+
