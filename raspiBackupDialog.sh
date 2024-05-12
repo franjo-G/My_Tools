@@ -69,13 +69,13 @@
 ###########################################################################################################################################
 # Font colours definition
 
-YELLOW='\033[1;33m'
-RED='\033[1;31m'
-GREEN='\033[1;32m'
-BLUE='\033[1;34m'
-VIOLET='\033[1;35m'
-CYAN='\033[1;36m'
-NORMAL='\033[0;39m'
+readonly YELLOW='\033[1;33m'
+readonly RED='\033[1;31m'
+readonly GREEN='\033[1;32m'
+readonly BLUE='\033[1;34m'
+readonly VIOLET='\033[1;35m'
+readonly CYAN='\033[1;36m'
+readonly NORMAL='\033[0;39m'
 
 # Font colors for output
 
