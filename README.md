@@ -1,6 +1,7 @@
 ## Collection of some sample scripts useful for raspiBackup users
 
 Information 
+
 At the suggestion of a user, I have defined the color output of the texts myself with a config file, as they are not all clearly visible on every background.
 
 The config file must be saved under /usr/local/etc/raspiBackupDialog.conf
